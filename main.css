@@ -1,0 +1,22 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+#myheader ul {
+
+}
+
+#myheader ul li {
+    padding: 0;
+    background-color: lightcyan;
+    display:inline !important;
+}
+    
+#myheader ul li:hover {
+    padding: 0;
+    background-color: gray;
+    cursor: pointer;
+    display:inline !important;
+}
