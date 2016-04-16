@@ -1,0 +1,28 @@
+﻿body {
+   
+}
+
+div {
+    
+}
+
+#container {
+    /*position: relative;*/
+}
+
+#left {
+    background-color: aquamarine;
+    float:left;
+}
+
+#right {
+    /*float:right;*/
+    /*display: inline-block;*/
+    display: inline-block;
+    float: right;
+    background-color: red;
+}
+
+#footer {
+    float:none
+}
