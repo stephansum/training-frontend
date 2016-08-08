@@ -1,16 +1,16 @@
 ﻿body {
     margin: 0;
     padding: 0;
-    color: black;
+    color: red;
 }
 
-#myheader ul {
+/*#myheader ul {
 
 }
 
 #myheader ul li {
     padding: 0;
-    background-color: green;
+    background-color: yellow;
     display:inline !important;
 }
     
@@ -19,4 +19,4 @@
     background-color: gray;
     cursor: pointer;
     display:inline !important;
-}
+}*/
