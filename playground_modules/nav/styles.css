@@ -1,0 +1,12 @@
+nav3 ul {
+  margin: 0;
+  padding: 6px;
+  list-style: none; }
+
+nav3 li {
+  display: inline-block; }
+
+nav3 a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none; }
