@@ -1,0 +1,19 @@
+{
+  "name": "playground",
+  "description": "",
+  "main": "index.js",
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "^4.14.2",
+    "html5shiv": "^3.7.3"
+  }
+}
