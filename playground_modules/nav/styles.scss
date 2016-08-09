@@ -1,17 +1,11 @@
-$padding: 6px;
+html {
+  font-size: 100%;
+}
 
-nav3 {
-  ul {
-    margin: 0;
-    padding: $padding;
-    list-style: none;
-  }
+body {
+  font-size: 100%;
+}
 
-  li { display: inline-block; }
-
-  a {
-    display: block;
-    padding: $padding 12px;
-    text-decoration: none;
-  }
+p {
+  font-size: 1rem;
 }
