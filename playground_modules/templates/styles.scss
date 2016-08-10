@@ -34,11 +34,6 @@ body {
   margin: 0;
 }
 
-main { // testing stuff
-  background-color: yellow;
-  height: 100%;
-}
-
 
 // COPIED OVER ///
 
@@ -169,7 +164,7 @@ th {
 
 /* Helpers: Floats and Clearing */
 
-.clearfix:after {
+.clearfix:after {  // http://www.cssmojo.com/latest_new_clearfix_so_far/
   content: "";
   display: table;
   clear: both; 
@@ -324,3 +319,39 @@ th {
 @media only screen and (min-width: 600px) {
 }
 
+
+
+/*-------------------------------------*/
+
+
+/* Header */
+
+header {
+
+}
+
+/* Header: Logo */
+
+/* Header: Navigation */
+
+nav {
+
+}
+
+/* Main */
+
+main {
+
+}
+
+/* Main: Section A */
+
+/* Footer */
+
+footer {
+
+}
+
+/* Footer: Social Icons */
+
+/* Footer: Copyright Block */
