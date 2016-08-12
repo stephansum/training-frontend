@@ -1,0 +1,41 @@
+@import '../templates/styles.scss';
+
+header {
+  background-color: black;
+  height: 20%;
+}
+
+main {
+  height: 70%;
+  background-color: gray;
+  padding: 2%;
+
+  :first-child {
+    padding-left: 0;
+  }
+}
+
+.col {
+  height: 100%;
+  width: (1/3) * 100%;
+  float: left;
+  padding-left: 2%;
+}
+
+.left {
+  background-color: red;
+}
+
+.middle {
+  background-color: yellow;
+}
+
+.right {
+  background-color: green;
+}
+
+footer {
+  height: 10%;
+  background-color: black;
+  color: white;
+}

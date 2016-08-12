@@ -1,0 +1,48 @@
+@import '../templates/styles.scss';
+
+header {
+  background-color: black;
+  height: 20%;
+}
+
+main {
+  width: 800px;
+  height: 70%;
+  background-color: gray;
+  padding: 2%;
+  display: flex; //defines wheter the container is inline (container takes only the specified with) or block (container takes whole row regardless of width)
+
+  :first-child {
+    padding-left: 0;
+  }
+}
+
+.col {
+  height: 100%;
+  // width: 200px; // if no width given ... all items within the flexbox grow automatically (share the available free space) even without explicitly stating flex-grow: 1
+  padding-left: 2%;
+}
+
+.left {
+  background-color: red;
+  height: 200px;
+  flex: 0 1 auto;
+}
+
+.middle {
+  background-color: yellow;
+  flex: 0 1 auto;
+  height: 400px;
+}
+
+.right {
+  background-color: green;
+  flex: 0 1 auto;
+  height:600px;
+}
+
+footer {
+  height: 10%;
+  background-color: black;
+  color: white;
+}
