@@ -6,3 +6,6 @@ body {
 
 p {
   font-size: 1rem; }
+
+ul {
+  text-transform: uppercase; }
