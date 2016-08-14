@@ -1,0 +1,38 @@
+@import '../templates/styles.scss';
+
+
+main {
+  margin: auto;
+  width: 800px;
+  background-color: gray;
+  padding: 2%;
+  display: flex; //defines wheter the container is inline (container takes only the specified with) or block (container takes whole row regardless of width)
+
+  :first-child {
+    padding-left: 0;
+  }
+}
+
+img {
+  margin: 5px;
+  
+}
+
+.item {
+  height: 100%;
+  // width: 200px; // if no width given ... items within the flexbox will not grow automatically (share the available free space). they will be just as wide as their content. we can let them distribute the available free space by specifiying flex-grow: 1 or with the shorthand flex: 1 1 auto;
+  padding-left: 2%;
+  
+}
+
+.left {
+  background-color: red;
+}
+
+.middle {
+  background-color: yellow;
+}
+
+.right {
+  background-color: green;
+}
