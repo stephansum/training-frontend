@@ -35,11 +35,16 @@ html, body {
 /* ------------------- Opinionated Base Styles ------------------- */
 
 body, input, select, button {
-    line-height:1.4;
+    line-height: 1.5; // or even 1.6
     background-color: #fafafa;
     color: #222; // or #333
     font-family: sans-serif;
     font-size: 1em;
+}
+
+
+p {
+  margin-top: 0;
 }
 
 

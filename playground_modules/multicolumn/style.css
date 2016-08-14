@@ -282,7 +282,7 @@ textarea {
     display: none; } }
 
 main {
-  border: 1px solid red; }
-
-p {
-  border: inherit; }
+  margin: auto;
+  max-width: 1200px;
+  column-count: 3;
+  column-gap: 2em; }
