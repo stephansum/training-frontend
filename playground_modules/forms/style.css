@@ -287,7 +287,37 @@ textarea {
     display: none; } }
 
 main {
-  border: 1px solid red; }
+  margin: auto;
+  max-width: 80%; }
 
-p {
-  border: inherit; }
+.label-container {
+  display: flex;
+  flex-wrap: wrap; }
+
+.field-block {
+  width: 100%;
+  display: block;
+  flex-grow: 1;
+  padding: 0.3em; }
+  .field-block.required > label::after {
+    margin-left: 0.5em;
+    content: '*';
+    color: red; }
+
+.one-third {
+  flex-basis: 33%; }
+
+input, textarea, select {
+  min-width: 10em;
+  width: 100%;
+  display: block;
+  padding: 0.4em 0.6em; }
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #333; }
+
+label {
+  display: block; }
+
+.subject-label {
+  flex-basis: 100%; }

@@ -1,0 +1,49 @@
+@import '../templates/styles.scss';
+
+main {
+  margin: auto;
+  max-width: 80%;
+}
+
+.label-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.field-block {
+  width: 100%;
+  display: block; 
+  flex-grow: 1;
+  padding: 0.3em;
+
+
+  &.required>label::after {
+    margin-left: 0.5em;
+    content: '*';
+    color: red;
+  }
+}
+
+.one-third {
+  flex-basis: 33%;
+}
+
+input, textarea, select {
+    min-width: 10em;
+    width: 100%;
+    display: block;
+    padding: 0.4em 0.6em;
+
+    &:focus {
+      outline: none;
+      border-color: #333;
+    } 
+  }
+
+label {
+  display: block;
+}
+
+.subject-label {
+  flex-basis: 100%;
+}

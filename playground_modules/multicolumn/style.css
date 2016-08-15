@@ -171,6 +171,11 @@ img, video, svg {
   max-width: 100%;
   height: auto; }
 
+input, textarea {
+  border: 1px solid #ccc;
+  padding: 0.2em 0.4em;
+  background-color: white; }
+
 input[type="submit"], input[type="reset"], input[type="button"], button {
   cursor: pointer; }
 

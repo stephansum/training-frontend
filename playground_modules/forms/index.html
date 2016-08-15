@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <main>
+
+
+        <form action="#" method="GET">
+
+            <h1>Formular</h1>
+            <fieldset>
+                <legend>
+                    <h2>Personendaten</h2>
+                </legend>
+
+                <div class="label-container">
+
+                    <div class="field-block one-third">
+                        <label>Vorname</label>
+                        <input type="text">
+                    </div>
+
+                    <div class="field-block one-third required">
+                        <label>Name</label>
+                        <input type="text">
+                    </div>
+
+                    <div class="field-block one-third required">
+                        <label>E-Mail</label>
+                        <input type="email">
+                    </div>
+
+                    <div class="field-block">
+                        <label class="subject-label">Betreff</label>
+                        <input class="subject-input" type="text" autofocus>
+                    </div>
+            </fieldset>
+            <fieldset>
+                <legend>
+                    <h2>Sonstiges</h2>
+                </legend>
+
+                <div class="field-block required">
+                    <label>Nachricht</label>
+                    <textarea rows="4"></textarea>
+                </div>
+
+                <div class="field-block required">
+                    <select name="top5" size="3">
+                            <option>Heino</option>
+                            <option>Michael Jackson</option>
+                            <option>Tom Waits</option>
+                            <option>Nina Hagen</option>
+                            <option>Marianne Rosenberg</option>
+			            </select>
+                </div>
+
+                <div class="field-block">
+                    <input type="submit" value="Und ab damit!">
+                </div>
+                <div class="field-block">
+                    <input type="reset">
+                </div>
+
+            </fieldset>
+
+            <!--<fieldset>
+                <legend>Colour</legend>
+                <label><input type="radio" name="colour" value="blue"> Blue </label>
+                <label><input type="radio" name="colour" value="red"> Red </label>
+                <label><input type="radio" name="colour" value="green"> Green </label>
+            </fieldset>-->
+
+        </form>
+
+    </main>
+
+</body>
+
+</html>
