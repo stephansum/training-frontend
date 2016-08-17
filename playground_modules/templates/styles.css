@@ -157,7 +157,7 @@ html, body {
   padding: 0.2em 0; }
 
 /* ------------------- Opinionated Base Styles ------------------- */
-body, input, select, button {
+body, input, select, button, textarea {
   line-height: 1.5;
   background-color: #fafafa;
   color: #222;

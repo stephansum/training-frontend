@@ -1,18 +1,30 @@
 @import '../templates/styles.scss';
-
-
 body {
   // background-image: url('bg.png');
   // background-repeat: repeat;
   // background-size: contain;
-  
 }
 
-
-img {
-
-}
+img {}
 
 main {
   max-width: 1200px;
+}
+
+.container {
+  display: inline-block;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(1, 1, 1, 0.3);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }

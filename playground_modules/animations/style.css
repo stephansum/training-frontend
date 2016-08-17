@@ -286,21 +286,12 @@ textarea {
   nav {
     display: none; } }
 
-main {
-  max-width: 1200px; }
+.box {
+  background-color: red;
+  height: 200px;
+  width: 200px;
+  transition: transform 5s ease, background-color 3s linear; }
 
-.container {
-  display: inline-block;
-  position: relative; }
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(1, 1, 1, 0.3);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end; }
+.wrapper:hover .box {
+  transform: translate(1000px, 500px) skew(45deg, 45deg);
+  background-color: blue; }
