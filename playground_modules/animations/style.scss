@@ -1,17 +1,30 @@
 @import '../templates/styles.scss';
-
-.wrapper {
-
-} 
+.wrapper {}
 
 .box {
   background-color: red;
   height: 200px;
   width: 200px;
   transition: transform 5s ease, background-color 3s linear;
-} 
+}
 
-  .wrapper:hover .box {
-    transform: translate(1000px, 500px) skew(45deg,45deg);
-    background-color: blue;
-  }
+.wrapper:hover .box {
+  transform: translate(1000px, 500px) skew(45deg, 45deg);
+  background-color: blue;
+}
+
+// transition = <transition-property> <transition-duration> <transition-timing-function> <transition-delay>
+// transition wird dem "initial-state" selektor hinzugefügt 
+// transition-property can also be "all"
+// transition-duration: <number>s - dont forget the s for seconds
+// transition-timing-function: ease | ease-in | ease-out | ease-in-out | linear 
+//
+// 2D transform:
+// transform: translate | rotate | scale | skew
+//
+// 3D transforms:
+// grundsätzlich sind alle html elemente flache 2D elemente
+// wir können 3D also nur simulieren, wie wir 2D simulieren beim zeichnen - z.B. durch perspektivische Gesetze (Fluchtpunkte, Horizontlinie etc)
+// perspective:  muss immer gesetzt werden
+// transform-origin:  x% y% - Verschiebt den Ursprung, was z.B: Auswirkungen auf die Rotationskurve hat
+// backface-visibility: true | false
