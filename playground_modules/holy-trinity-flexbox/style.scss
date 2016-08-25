@@ -1,5 +1,3 @@
-@import '../templates/styles.scss';
-
 header {
   background-color: black;
   height: 20%;
@@ -11,7 +9,6 @@ main {
   background-color: gray;
   padding: 2%;
   display: flex; //defines wheter the container is inline (container takes only the specified with) or block (container takes whole row regardless of width)
-
   :first-child {
     padding-left: 0;
   }
@@ -38,7 +35,7 @@ main {
 .right {
   background-color: green;
   flex: 0 1 auto;
-  height:600px;
+  height: 600px;
 }
 
 footer {
