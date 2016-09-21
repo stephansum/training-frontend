@@ -1,0 +1,33 @@
+sass
+autoprefixer 
+plumber
+live-server
+gulp-html-ssi
+gulp-util
+auto loader / auto require
+task for updateing: npm / bower / typings
+folder structure
+js inject vs browserify
+linter
+clean
+
+custom log function: gulp-log ?
+
+guide for npm package update right in the according git project SassEssentials
+
+
+
+
+
+More topics for the BuildAutomation Training:
+
+clean
+mimification
+bundling
+sourcemaps
+uglify
+inject
+browser-sync (for asp.net projects -> proxy to kestrel)
+
+src/temp/dist folders
+

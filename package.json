@@ -14,5 +14,9 @@
     "normalize.css": "^4.2.0",
     "sass-essentials": "^1.0.2",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "devDependencies": {
+    "gulp-file-include": "^0.14.0",
+    "gulp-plumber": "^1.1.0"
   }
 }
