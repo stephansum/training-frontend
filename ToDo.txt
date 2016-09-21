@@ -1,2 +1,0 @@
-normalize.css vs reset 2.0
-compass  vs pure.io
