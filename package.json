@@ -17,6 +17,13 @@
   },
   "devDependencies": {
     "gulp-file-include": "^0.14.0",
-    "gulp-plumber": "^1.1.0"
+    "gulp-if": "^2.0.1",
+    "gulp-jscs": "^4.0.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-print": "^2.0.1",
+    "jshint": "^2.9.3",
+    "jshint-stylish": "^2.2.1",
+    "yargs": "^5.0.0"
   }
 }

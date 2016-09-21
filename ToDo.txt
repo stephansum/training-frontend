@@ -1,3 +1,9 @@
+gulp-jshint
+gulp-jscs
+jshint-stylish
+gulp-print
+gulp-if
+
 sass
 autoprefixer 
 plumber
