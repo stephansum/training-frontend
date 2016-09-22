@@ -10,6 +10,7 @@ var rename = require("gulp-rename");
 var gulpif = require('gulp-if');
 var args = require('yargs').argv;  // <---- dont forget argv
 
+var install = require("gulp-install");
 var exec = require('child_process').exec; // part of nodejs - no npm package needed
 var includer = require('gulp-file-include');
 var jscs = require('gulp-jscs');
@@ -24,6 +25,11 @@ var config = require('./gulp.config')();
 //jscs not working?
 
 //eslint !
+
+// whenever the gulpfile is processed: make sure, all packages are installed
+gulp.src(['./bower.json', './package.json'])
+  .pipe(install());
+
 
 
 gulp.task('sass', function () {
