@@ -10,7 +10,6 @@ var rename = require("gulp-rename");
 var gulpif = require('gulp-if');
 var args = require('yargs').argv;  // <---- dont forget argv
 
-var install = require("gulp-install");
 var exec = require('child_process').exec; // part of nodejs - no npm package needed
 var includer = require('gulp-file-include');
 var jscs = require('gulp-jscs');
@@ -26,10 +25,6 @@ var config = require('./gulp.config')();
 
 //eslint !
 
-// whenever the gulpfile is processed: make sure, all packages are installed
-gulp.src(['./bower.json', './package.json'])
-  .pipe(install());
-
 
 
 gulp.task('sass', function () {
@@ -42,7 +37,6 @@ gulp.task('sass', function () {
 // gulp.dest(function(f) { return f.base; })  // returns file to its original src path - if not renamed .. files will override themselves
 
 
-
 // gulp-rimraf for deletion is deprecated:  instead use: https://github.com/gulpjs/gulp/blob/master/docs/recipes/delete-files-folder.md
 // also task naming convention clean:css  use colons! 
 gulp.task('clean', function () {
@@ -53,7 +47,7 @@ gulp.task('clean', function () {
 
 gulp.task('rename', function () {
     return gulp
-        .src('./src/**/style.scss') 
+        .src('./src/**/style.scss')
         .pipe(rename(function (path) {
             path.basename = 'custom';
         }))
@@ -77,7 +71,7 @@ gulp.task('jshint', function () {
     return gulp.src([
         './src/**/*.js',
         './*.js'
-        ])
+    ])
         .pipe(jshint())
         .pipe(jshint.reporter('jshint-stylish', { verbose: true }))
         .pipe(jshint.reporter('fail'));
@@ -102,21 +96,18 @@ gulp.task('watch', function () {
 
 
 
-gulp.task('liveserver', function(cb) {
+gulp.task('liveserver', function (cb) {
     exec('live-server', function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-    cb(err);
-  });
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+    });
 });
 
 // this task will be called when pressing Ctrl+Shift+B  (see .vscode/tasks.json)
 gulp.task('default', ['watch', 'liveserver'], function () {
-    
+
 });
-
-
-
 
 
 
