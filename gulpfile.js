@@ -32,23 +32,25 @@ var pathes = {
 
 gulp.task('sass', function () {
     return gulp
-        .src(config.src_css) // to watch ALL: ./**/*.scss
+        .src(config.src_scss) // to watch ALL: ./**/*.scss
         .pipe(sass().on('error', sass.logError)) // .on('error', sass.logError)  to swallow error   [.pipe(plumber())  seems to be the better option)]
         .pipe(gulp.dest(config.dist));
 });
 
 // gulp.dest(function(f) { return f.base; })  // returns file to its original src path - if not renamed .. files will override themselves
 
-gulp.task('clean-css', function () {
-    var filesToDelete = config.src_css;
+gulp.task('clean', function () {
+    var filesToDelete = './src/**/style.scss';
     del(filesToDelete);
 });
 
 gulp.task('rename', function () {
     return gulp
-    .src('./src/**/style.scss')
-    .rename("custom.scss")
-    .pipe(gulp.dest(config.dist))
+        .src('./src/**/style.scss')  // takes 
+        .pipe(rename(function (path) {
+            path.basename = 'custom';
+        }))
+        .pipe(gulp.dest('./src/'));  // dest path gets appended to incoming relative file path of src (without the base! - base is everything without globs: ** / *)
 });
 
 gulp.task('includer', function () {
