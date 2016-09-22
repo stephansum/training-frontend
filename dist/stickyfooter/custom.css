@@ -1,0 +1,14 @@
+.wrapper {
+  width: 200px;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap; }
+
+main {
+  background-color: #aFAfaf;
+  flex-grow: 1; }
+
+footer {
+  background-color: #333;
+  color: white;
+  flex-basis: 40px; }

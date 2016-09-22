@@ -1,0 +1,36 @@
+header {
+  background-color: black;
+  height: 20%; }
+
+main {
+  width: 800px;
+  height: 70%;
+  background-color: gray;
+  padding: 2%;
+  display: flex; }
+  main :first-child {
+    padding-left: 0; }
+
+.col {
+  height: 100%;
+  padding-left: 2%; }
+
+.left {
+  background-color: red;
+  height: 200px;
+  flex: 0 1 auto; }
+
+.middle {
+  background-color: yellow;
+  flex: 0 1 auto;
+  height: 400px; }
+
+.right {
+  background-color: green;
+  flex: 0 1 auto;
+  height: 600px; }
+
+footer {
+  height: 10%;
+  background-color: black;
+  color: white; }

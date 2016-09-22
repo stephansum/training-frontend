@@ -2,12 +2,35 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link href="../../node_modules/sass-essentials/styles/styles.css " rel="stylesheet " media="all ">
-    <link href="style.css " rel="stylesheet " media="all ">
-</head>
+    <title></title>
+    <meta name="description" content=""> 
+    <!-- Encoding as early as possible: must be included completely within the first 1024 bytes of the document !-->
+<meta charset="utf-8">
 
+<!-- Will force Internet Explorer 8/9/10 to render the webpage in the highest available mode and not in a compatibility mode !-->
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<!-- prevent mobile devices from faking a bigger viewport, which would result in zoomed out websites -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+<!-- Add apple touch icon. == desktop icon for saved websites - also works on android devices! -->
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- Place favicon.ico in the root directory - favicon is displayed in browsers favorite bar -->
+
+<!-- Normalize instead of reset - make locally available if necessary -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css" rel="stylesheet" media="all">
+
+<!-- Sass-Essentials Lightweight CSS Framework -->
+<link href="../../node_modules/sass-essentials/styles/styles.css" rel="stylesheet" media="all">
+
+<!-- Custom Styles -->
+<link href="custom.css" rel="stylesheet" media="all">
+
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js" media="all"></script><![endif]-->
+
+<!-- Modernizr script needs to run before the browser begins rendering the page, so that browsers lacking support for some of the new HTML5 elements are able to handle them properly -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+</head>
 
 <body>
 
@@ -28,6 +51,10 @@
     </main>
 
 
+    <!-- polyfill.io reads user agent arguments and returns only the polyfills that are needed by the users browser -->
+<script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<!--<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>-->
 </body>
 
 </html>
