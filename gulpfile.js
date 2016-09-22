@@ -1,41 +1,54 @@
 var gulp = require('gulp');
 var util = require('gulp-util');
-var plumber = require('gulp-plumber');
-var includer = require('gulp-file-include');
 var gulpprint = require('gulp-print');
+var debug = require('gulp-debug');
+var plumber = require('gulp-plumber');
+var source = require('vinyl-source-stream');
+var del = require('del');
+
 var gulpif = require('gulp-if');
-var yargs = require('yargs');
+var args = require('yargs').argv;  // <---- dont forget argv
+
+var includer = require('gulp-file-include');
 var jscs = require('gulp-jscs');
 var jshint = require('gulp-jshint');
+var sass = require('gulp-sass');
+var browserify = require('browserify');
+
+var config = require('./gulp.config')();
+
+// var $ = require('gulp-load-plugins')({lazy:true}); // disadvantage: i cant name my plugins anymore , advantage: i cant use occupied names like print or if
 
 //jscs not working?
 
 //eslint !
 
-var sass = require('gulp-sass');
-var browserify = require('browserify');
-var source = require('vinyl-source-stream');
+
 
 var pathes = {
-    src_css: './src/**/*.css',
-    src_less: './src/**/*.css',
-    dest_css: './dist/**/*.css',
-    dist_less: './dist/**/*.css',
+
 }
 
-gulp.task('sass', function() {
+gulp.task('sass', function () {
     return gulp
-        .src('src/**/*.scss') // to watch ALL: ./**/*.scss
+        .src(config.src_css) // to watch ALL: ./**/*.scss
         .pipe(sass().on('error', sass.logError)) // .on('error', sass.logError)  to swallow error   [.pipe(plumber())  seems to be the better option)]
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest(config.dist));
 });
 
-// gulp.dest(function(f) { return f.base; })  // returns file to its original src path - if not renamed .. it will override itself
+// gulp.dest(function(f) { return f.base; })  // returns file to its original src path - if not renamed .. files will override themselves
 
-gulp.task('includer', function() {
+gulp.task('clean-css', function () {
+    return gulp
+        .src(config.src_css)
+        .pipe(del())
+});
+
+gulp.task('includer', function () {
     log("Running includer ...");
     return gulp.src('./src/**/*.html')
-        .pipe(gulpprint())
+        // .pipe(debug())
+        .pipe(gulpif(args.verbose, gulpprint()))
         .pipe(plumber())
         .pipe(includer({
             prefix: '@@',
@@ -44,20 +57,20 @@ gulp.task('includer', function() {
         .pipe(gulp.dest("./dist"));
 });
 
-gulp.task('jshint', function(){
+gulp.task('jshint', function () {
     return gulp.src([
         './src/**/*.js',
         './*.js'
     ])
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish', { verbose: true}))
-    .pipe(jshint.reporter('fail'));
+        .pipe(jshint())
+        .pipe(jshint.reporter('jshint-stylish', { verbose: true }))
+        .pipe(jshint.reporter('fail'));
 });
 
-gulp.task('bundlejs', function() {
+gulp.task('bundlejs', function () {
     browserify('main.js') // start analyzing main.js for further required files
         .bundle()
-        .on('error', function(e) {
+        .on('error', function (e) {
             util.log(e);
         })
         .pipe(source('bundle.js')) // create vinyl stream which is required by gulp
@@ -66,7 +79,7 @@ gulp.task('bundlejs', function() {
 
 
 
-gulp.task('watch', function() {
+gulp.task('watch', function () {
     // dont use "./" in front of pathes, because otherwise gulp-watch isnt able to recognize newly or deleted files
     gulp.watch('src/**/*.scss', ['sass']);
 
@@ -74,14 +87,14 @@ gulp.task('watch', function() {
 });
 
 
-gulp.task('js', function() {
+gulp.task('js', function () {
     return gulp
         .src('./src/**/*.js')
 });
 
 
 
-gulp.task('default', ['sass'], function() {
+gulp.task('default', ['sass'], function () {
 
 });
 
@@ -89,7 +102,7 @@ gulp.task('default', ['sass'], function() {
 ///////////////////////
 
 function log(msg) {
-    if (typeof(msg) === 'object') {
+    if (typeof (msg) === 'object') {
         for (var item in msg) {
             if (msg.hasOwnProperty(item)) {
                 util.log(util.colors.blue(msg[item]));
