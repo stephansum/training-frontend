@@ -5,7 +5,7 @@
     "tasks": [
         {
             "taskName": "default",
-            "isBuildCommand": true,
+            "isBuildCommand": true,  // Shift + Ctrl + B  ist the build command
             "showOutput": "always",
             "isWatching": true
         }
