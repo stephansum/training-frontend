@@ -5,6 +5,7 @@ var debug = require('gulp-debug');
 var plumber = require('gulp-plumber');
 var source = require('vinyl-source-stream');
 var del = require('del');
+var rename = require("gulp-rename");
 
 var gulpif = require('gulp-if');
 var args = require('yargs').argv;  // <---- dont forget argv
@@ -17,7 +18,7 @@ var browserify = require('browserify');
 
 var config = require('./gulp.config')();
 
-// var $ = require('gulp-load-plugins')({lazy:true}); // disadvantage: i cant name my plugins anymore , advantage: i cant use occupied names like print or if
+// var $ = require('gulp-load-plugins')({lazy:true}); // disadvantage: i cant name my plugins anymore , advantage: i cant use occupied names like print or if, lazylodaing!
 
 //jscs not working?
 
@@ -39,9 +40,15 @@ gulp.task('sass', function () {
 // gulp.dest(function(f) { return f.base; })  // returns file to its original src path - if not renamed .. files will override themselves
 
 gulp.task('clean-css', function () {
+    var filesToDelete = config.src_css;
+    del(filesToDelete);
+});
+
+gulp.task('rename', function () {
     return gulp
-        .src(config.src_css)
-        .pipe(del())
+    .src('./src/**/style.scss')
+    .rename("custom.scss")
+    .pipe(gulp.dest(config.dist))
 });
 
 gulp.task('includer', function () {
