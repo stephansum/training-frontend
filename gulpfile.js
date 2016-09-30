@@ -17,7 +17,7 @@ var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
 var browserify = require('browserify');
 
-var config = require('./gulp.config')();
+var config = require('./gulp.config.js');
 
 // var $ = require('gulp-load-plugins')({lazy:true}); // disadvantage: i cant name my plugins anymore , advantage: i cant use occupied names like print or if, lazylodaing!
 
