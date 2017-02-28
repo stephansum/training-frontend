@@ -26,7 +26,6 @@ var config = require('./gulp.config.js');
 //eslint !
 
 
-
 gulp.task('sass', function () {
     return gulp
         .src(config.src_scss) // to watch ALL: ./**/*.scss
@@ -97,7 +96,7 @@ gulp.task('watch', function () {
 
 
 gulp.task('liveserver', function (cb) {
-    exec('live-server', function (err, stdout, stderr) {
+    exec('live-server dist', function (err, stdout, stderr) {
         console.log(stdout);
         console.log(stderr);
         cb(err);
