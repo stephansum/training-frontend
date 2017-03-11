@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var watch = require('gulp-watch');
 var util = require('gulp-util');
 var gulpprint = require('gulp-print');
 var debug = require('gulp-debug');
@@ -29,6 +30,7 @@ var config = require('./gulp.config.js');
 gulp.task('sass', function () {
     return gulp
         .src(config.src_scss) // to watch ALL: ./**/*.scss
+        // .pipe(debug())
         .pipe(sass().on('error', sass.logError)) // .on('error', sass.logError)  to swallow error   [.pipe(plumber())  seems to be the better option)]
         .pipe(gulp.dest(config.dist));
 });
@@ -39,8 +41,8 @@ gulp.task('sass', function () {
 // gulp-rimraf for deletion is deprecated:  instead use: https://github.com/gulpjs/gulp/blob/master/docs/recipes/delete-files-folder.md
 // also task naming convention clean:css  use colons! 
 gulp.task('clean', function () {
-    var filesToDelete = './src/**/style.scss';
-    del(filesToDelete);
+    var toDelete = ["./dist"];
+    del(toDelete);
 });
 
 
@@ -57,7 +59,7 @@ gulp.task('includer', function () {
     // log("Running includer ...");
     return gulp.src(config.src_html)
         // .pipe(debug())
-        .pipe(gulpif(args.verbose, gulpprint()))
+        // .pipe(gulpif(args.verbose, gulpprint()))
         .pipe(plumber())
         .pipe(includer({
             prefix: '@@',
@@ -89,14 +91,24 @@ gulp.task('bundlejs', function () {
 
 gulp.task('watch', function () {
     // dont use "./" in front of pathes, because otherwise gulp-watch isnt able to recognize newly or deleted files
-    gulp.watch(config.src_scss, ['sass']);
-    gulp.watch(config.src_html, ['includer']);
+
+    // gulp.watch(config.src_scss, ['sass']);
+    // gulp.watch(config.src_html, ['includer']);
+
+
+    // switched from gulp.watch  to gulp-watch (seperate npm package), because it offers live recognition of new folders
+    watch(config.src_scss, function() {
+        gulp.start('sass');
+    });
+    watch(config.src_html, function() {
+        gulp.start('includer');
+    });
 });
 
 
 
 gulp.task('liveserver', function (cb) {
-    exec('live-server dist', function (err, stdout, stderr) {
+    exec('live-server', function (err, stdout, stderr) {
         console.log(stdout);
         console.log(stderr);
         cb(err);
