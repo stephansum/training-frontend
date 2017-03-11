@@ -1,0 +1,42 @@
+/* ------------------- Default Link Styling ------------------- */
+
+// Remember: LoVe-HAte
+// a:link { color:#0271fb; }
+// a:visited { color:#bd02fb; }
+// a:hover, a:focus { color:#000; }
+// a:active { color:#fb0e02; }
+
+
+h1 {
+  font-size: 2em; /* 1em = 16px  when an 'em' is specified as font-size it gets its value always from the browser default. when 'em' is specified on another property like margin, it gets its value from the current front size of the element  */
+  margin-bottom: 1em; /* 1em = 32px  because 1EM is relative to the current fontsize of that element */
+}
+
+p {
+  font-size: 1em; /* 1em = 16px */
+  margin-bottom: 1em; /* 1em = 16px */
+}
+
+.outer {
+    font-size: 2em;  // 2 * 16px = 32px;
+    font-size: 200%; 
+}
+
+.inner {
+    font-size: 1em; // 1 * 32px = 32px ... font-size of .inner is inherited from .outer. So the current font-size of .inner is 32px at the time we override it with 1em
+    font-size: 100%; // percentages work like em, in the sense, that they are also relative to the parents font-size. Both adjust the font-size relative to what it was. 1.5em is the same as 150%. The only advantage seems to be readability and there are some browser compatibility differences
+}
+
+
+/* ------------------- C&P Media Queries ------------------- */
+
+
+/* Adjust breakpoints to the layout and not to specific devices! */
+
+@media only screen and (min-width: 1200px) {}
+
+@media only screen and (min-width: 900px) {}
+
+@media only screen and (min-width: 700px) {}
+
+@media only screen and (min-width: 600px) {}
