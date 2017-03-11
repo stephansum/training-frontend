@@ -7,7 +7,7 @@
   },
   "homepage": "https://bitbucket.org/BlackMesa/trainingfrontend#readme",
   "dependencies": {
-    "boilerplate-styles": "^1.0.0",
+    "boilerplate-styles": "^2.0.0",
     "normalize.css": "^4.2.0"
   },
   "devDependencies": {
