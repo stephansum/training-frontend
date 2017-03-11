@@ -1,0 +1,53 @@
+/* ------------------- Default Link Styling ------------------- */
+
+// Remember: LoVe-HAte
+// a:link { color:#0271fb; }
+// a:visited { color:#bd02fb; }
+// a:hover, a:focus { color:#000; }
+// a:active { color:#fb0e02; }
+
+.item {
+    background-color: yellow;
+}
+
+.underneath {
+    .item {
+        margin: 20px 0;
+        padding: 1px; // padding does NOT prevent collapsing margin
+        border: 1px solid black; // border does NOT prevent collapsing margin either
+    }
+}
+
+.beneath {
+    .item {
+        display: inline-block;
+        margin: 0 20px;  // NO collapsing margins on items that are laid out horizontally
+    }
+}
+
+.parent {
+    background-color: green;
+    margin: 0;  // even though parent does not have a margin, it gets the margin from its first in-flow child
+}
+
+.child {
+    margin-top: 20px;
+    padding-top: 40px;
+}
+
+
+// http://stackoverflow.com/questions/9519841/why-does-this-css-margin-top-style-not-work/9519933#9519933
+
+
+/* ------------------- C&P Media Queries ------------------- */
+
+
+/* Adjust breakpoints to the layout and not to specific devices! */
+
+@media only screen and (min-width: 1200px) {}
+
+@media only screen and (min-width: 900px) {}
+
+@media only screen and (min-width: 700px) {}
+
+@media only screen and (min-width: 600px) {}

@@ -1,0 +1,48 @@
+/* ------------------- Default Link Styling ------------------- */
+
+// Remember: LoVe-HAte
+// a:link { color:#0271fb; }
+// a:visited { color:#bd02fb; }
+// a:hover, a:focus { color:#000; }
+// a:active { color:#fb0e02; }
+
+/* ------------------- Wrapper ------------------- */
+
+
+* {
+    outline: 1px solid red;
+}
+
+body {
+    display: flex; // this allows html,body to be 100% height and NOT getting effected by collapsing margins
+    flex-direction: column;  // with column we control the vertical size of bodies children. so: flex-grow: 0 will prevent the children from growing vertically
+}
+
+.main {
+    display: flex;
+    margin-top: 10px;  // this would normally shift the whole body container down and cause a vertical scrollbar (reason: collapsing margins) - but as we use display:flex there are no more collapsing margins
+    justify-content: space-between;  // space between is ideal to create gutters for multi-column layouts
+}
+
+.item {
+    flex-grow: 0;
+    // flex-shrink: 0; // would prevent that .item shrinks below its assigned width
+    width: 200px;
+    background-color: yellow;
+    padding: 5px;
+    margin-bottom: 3px;
+}
+
+
+/* ------------------- C&P Media Queries ------------------- */
+
+
+/* Adjust breakpoints to the layout and not to specific devices! */
+
+@media only screen and (min-width: 1200px) {}
+
+@media only screen and (min-width: 900px) {}
+
+@media only screen and (min-width: 700px) {}
+
+@media only screen and (min-width: 600px) {}

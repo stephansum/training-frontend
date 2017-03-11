@@ -116,8 +116,8 @@ gulp.task('liveserver', function (cb) {
 });
 
 // this task will be called when pressing Ctrl+Shift+B  (see .vscode/tasks.json)
-gulp.task('default', ['watch', 'liveserver'], function () {
-
+gulp.task('default', ['sass', 'includer', 'watch', 'liveserver'], function () {
+    
 });
 
 
