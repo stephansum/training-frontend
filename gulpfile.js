@@ -1,15 +1,9 @@
 var gulp = require('gulp');
 var watch = require('gulp-watch');
 var util = require('gulp-util');
-var gulpprint = require('gulp-print');
-var debug = require('gulp-debug');
 var plumber = require('gulp-plumber');
-var source = require('vinyl-source-stream');
 var del = require('del');
 var rename = require("gulp-rename");
-
-var gulpif = require('gulp-if');
-var args = require('yargs').argv;  // <---- dont forget argv
 
 var exec = require('child_process').exec; // part of nodejs - no npm package needed
 var includer = require('gulp-file-include');
