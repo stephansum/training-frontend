@@ -1,13 +1,17 @@
 {
-    "version": "0.1.0",
+    "version": "2.0.0",
     "command": "gulp",
-    "isShellCommand": true,
     "tasks": [
         {
-            "taskName": "default",
-            "isBuildCommand": true,  // Shift + Ctrl + B  ist the build command
-            "showOutput": "always",
-            "isWatching": true
+            "label": "default",
+            "type": "gulp",
+            "task": "default",
+            "isBackground": true,
+            "problemMatcher": [],
+            "group": {
+                "_id": "build",
+                "isDefault": false
+            }
         }
     ]
 }

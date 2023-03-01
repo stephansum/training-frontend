@@ -13,16 +13,11 @@ var args = require('yargs').argv;  // <---- dont forget argv
 
 var exec = require('child_process').exec; // part of nodejs - no npm package needed
 var includer = require('gulp-file-include');
-var jscs = require('gulp-jscs');
-var jshint = require('gulp-jshint');
 var sass = require('gulp-sass');
-var browserify = require('browserify');
 
 var config = require('./gulp.config.js');
 
 // var $ = require('gulp-load-plugins')({lazy:true}); // disadvantage: i cant name my plugins anymore , advantage: i cant use occupied names like print or if, lazylodaing!
-
-//jscs not working?
 
 //eslint !
 
@@ -66,26 +61,6 @@ gulp.task('includer', function () {
             basepath: '@file'
         }))
         .pipe(gulp.dest("./dist"));
-});
-
-gulp.task('jshint', function () {
-    return gulp.src([
-        './src/**/*.js',
-        './*.js'
-    ])
-        .pipe(jshint())
-        .pipe(jshint.reporter('jshint-stylish', { verbose: true }))
-        .pipe(jshint.reporter('fail'));
-});
-
-gulp.task('bundlejs', function () {
-    browserify('main.js') // start analyzing main.js for further required files
-        .bundle()
-        .on('error', function (e) {
-            util.log(e);
-        })
-        .pipe(source('bundle.js')) // create vinyl stream which is required by gulp
-        .pipe(gulp.dest('./dist/js')) // folder where the bundle.js will be created
 });
 
 

@@ -1,17 +1,24 @@
 {
-  "name": "trainingfrontend",
+  "name": "training-frontend",
   "version": "1.0.0",
-  "repository": {
-    "type": "git",
-    "url": "git+https://BlackMesa@bitbucket.org/BlackMesa/trainingfrontend.git"
+  "description": "",
+  "scripts": {
+    "prestart": "npm-run-all --parallel build:dev",
+    "start": "npm run webserver",
+    "webserver": "webpack-dev-server --open --env=dev --config webpack.config.dev.js",
+    "clean-dist": "rimraf ./dist && mkdir dist",
+    "prebuild": "npm-run-all --parallel clean-dist",
+    "prebuild:dev": "npm run prebuild",
+    "prebuild:prod": "npm run prebuild",
+    "build:dev": "webpack --env=dev --config webpack.config.dev.js",
+    "build:prod": "webpack --env=prod --config webpack.config.prod.js",
+    "localtunnel": "lt --port 3000",
+    "predeploy:github": "npm run build:prod",
+    "deploy:github": "gh-pages -d dist"
   },
-  "homepage": "https://bitbucket.org/BlackMesa/trainingfrontend#readme",
   "dependencies": {
-    "boilerplate-styles": "^2.0.0",
-    "normalize.css": "^4.2.0"
   },
   "devDependencies": {
-    "browserify": "^13.1.0",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-debug": "^2.1.2",
@@ -26,8 +33,6 @@
     "gulp-sass": "^2.3.2",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.11",
-    "jshint": "^2.9.3",
-    "jshint-stylish": "^2.2.1",
     "vinyl-source-stream": "^1.1.0",
     "yargs": "^5.0.0"
   }
