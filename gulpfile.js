@@ -1,19 +1,45 @@
-var gulp = require('gulp');
-var watch = require('gulp-watch');
-var util = require('gulp-util');
-var plumber = require('gulp-plumber');
-var del = require('del');
-var rename = require("gulp-rename");
+import gulp from "gulp";
+import watch from "gulp-watch";
+import util from "gulp-util";
+import plumber from "gulp-plumber";
+import {deleteAsync} from 'del';
+import rename from "gulp-rename";
+import exec from "child_process";
+import includer from "gulp-file-include";
+import dartSass from 'sass';
+import gulpSass from 'gulp-sass';
+import liveServer from "live-server";
 
-var exec = require('child_process').exec; // part of nodejs - no npm package needed
-var includer = require('gulp-file-include');
-var sass = require('gulp-sass');
+var params = {
+	// port: 8181, // Set the server port. Defaults to 8080.
+	// host: "0.0.0.0", // Set the address to bind to. Defaults to 0.0.0.0 or process.env.IP.
+	// root: "/public", // Set root directory that's being served. Defaults to cwd.
+	// open: false, // When false, it won't load your browser by default.
+	// ignore: 'scss,my/templates', // comma-separated string for paths to ignore
+	// file: "index.html", // When set, serve this file (server root relative) for every 404 (useful for single-page applications)
+	// wait: 1000, // Waits for all changes, before reloading. Defaults to 0 sec.
+	// mount: [['/components', './node_modules']], // Mount a directory to a route.
+	// logLevel: 2, // 0 = errors only, 1 = some, 2 = lots
+	// middleware: [function(req, res, next) { next(); }] // Takes an array of Connect-compatible middleware that are injected into the server middleware stack
+};
 
-var config = require('./gulp.config.js');
 
-// var $ = require('gulp-load-plugins')({lazy:true}); // disadvantage: i cant name my plugins anymore , advantage: i cant use occupied names like print or if, lazylodaing!
+const sass = gulpSass(dartSass);
 
-//eslint !
+
+// dont forget to install the following modules globally:
+// npm install -g live-server
+
+
+let config = {
+    src: './src',
+    dist: './dist',
+    src_css: './src/**/*.css',
+    src_scss: './src/**/*.scss',
+    src_html: './src/**/*.html',
+    dest_css: './dist/**/*.css',
+    dist_scss: './dist/**/*.scss'
+}
 
 
 gulp.task('sass', function () {
@@ -29,9 +55,9 @@ gulp.task('sass', function () {
 
 // gulp-rimraf for deletion is deprecated:  instead use: https://github.com/gulpjs/gulp/blob/master/docs/recipes/delete-files-folder.md
 // also task naming convention clean:css  use colons! 
-gulp.task('clean', function () {
+gulp.task('clean', async function () {
     var toDelete = ["./dist"];
-    del(toDelete);
+    await deleteAsync(toDelete);
 });
 
 
@@ -77,15 +103,17 @@ gulp.task('watch', function () {
 
 
 gulp.task('liveserver', function (cb) {
-    exec('live-server', function (err, stdout, stderr) {
-        console.log(stdout);
-        console.log(stderr);
-        cb(err);
-    });
+    liveServer.start(params);
+
+    // exec('live-server', function (err, stdout, stderr) {
+    //     console.log(stdout);
+    //     console.log(stderr);
+    //     cb(err);
+    // });
 });
 
 // this task will be called when pressing Ctrl+Shift+B  (see .vscode/tasks.json)
-gulp.task('default', ['sass', 'includer', 'watch', 'liveserver'], function () {
+gulp.task('default', gulp.parallel('sass', 'includer', 'watch', 'liveserver'), function () {
     
 });
 

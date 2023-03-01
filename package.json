@@ -2,28 +2,21 @@
   "name": "training-frontend",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "scripts": {
-    "prestart": "npm-run-all --parallel build:dev",
-    "start": "npm run webserver",
-    "webserver": "webpack-dev-server --open --env=dev --config webpack.config.dev.js",
-    "clean-dist": "rimraf ./dist && mkdir dist",
-    "prebuild": "npm-run-all --parallel clean-dist",
-    "prebuild:dev": "npm run prebuild",
-    "prebuild:prod": "npm run prebuild",
-    "build:dev": "webpack --env=dev --config webpack.config.dev.js",
-    "build:prod": "webpack --env=prod --config webpack.config.prod.js",
-    "localtunnel": "lt --port 3000",
-    "predeploy:github": "npm run build:prod",
-    "deploy:github": "gh-pages -d dist"
+    "start": "gulp default" 
   },
   "devDependencies": {
     "del": "^7.0.0",
     "gulp": "^4.0.2",
     "gulp-file-include": "^2.3.0",
+    "gulp-load-plugins": "^2.0.8",
     "gulp-plumber": "^1.2.1",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-util": "^3.0.8",
-    "gulp-watch": "^5.0.1"
+    "gulp-watch": "^5.0.1",
+    "live-server": "^1.2.2",
+    "sass": "^1.58.3"
   }
 }
